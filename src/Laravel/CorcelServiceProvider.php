@@ -30,7 +30,7 @@ class CorcelServiceProvider extends ServiceProvider
         $this->registerAuthProvider();
         $this->registerMorphMaps();
     }
-    
+
     /**
      * @return void
      */
@@ -46,7 +46,7 @@ class CorcelServiceProvider extends ServiceProvider
      */
     private function registerAuthProvider()
     {
-        if (Corcel::isLaravel()) {
+        if (Corcel::isLaravel() || Corcel::isLumen()) {
             Auth::provider('corcel', function ($app, array $config) {
                 return new AuthUserProvider($config);
             });

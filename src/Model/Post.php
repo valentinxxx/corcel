@@ -143,7 +143,7 @@ class Post extends Model
         if (isset($attributes['post_type']) && $attributes['post_type']) {
             if (isset(static::$postTypes[$attributes['post_type']])) {
                 $class = static::$postTypes[$attributes['post_type']];
-            } elseif (Corcel::isLaravel()) {
+            } elseif (Corcel::isLaravel() || Corcel::isLumen()) {
                 $postTypes = config('corcel.post_types');
                 if (is_array($postTypes) && isset($postTypes[$attributes['post_type']])) {
                     $class = $postTypes[$attributes['post_type']];

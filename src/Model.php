@@ -175,7 +175,7 @@ class Model extends Eloquent
      */
     public function getConnectionName()
     {
-        if (!isset($this->connection) && Corcel::isLaravel()) {
+        if (!isset($this->connection) && (Corcel::isLaravel() || Corcel::isLumen())) {
             if ($connection = config('corcel.connection')) {
                 $this->connection = $connection;
             }

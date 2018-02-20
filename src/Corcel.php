@@ -26,6 +26,7 @@ class Corcel
      */
     public static function isLumen()
     {
-        return preg_match('/Lumen', app()->version()) === 1;
+        return function_exists('app') &&
+            preg_match('/^Lumen/', app()->version()) === 1;
     }
 }
